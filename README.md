@@ -16,8 +16,9 @@ Il simule une petite infrastructure avec trois machines virtuelles légères :
 ./run.sh
 ```
 2. Nettoyer l'environnement :
+```
 ./stop.sh
-
+```
 
 ## 📂 Inventaire Ansible
 Un inventaire minimal est fourni par défaut :
