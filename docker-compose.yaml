@@ -1,0 +1,21 @@
+services:
+  nhitec01:
+    build:
+      context: ./nhitec01
+      dockerfile: Dockerfile
+    container_name: nhitec01
+
+  nhitec02:
+    build:
+      context: ./nhitec02
+      dockerfile: Dockerfile
+    container_name: nhitec02
+
+  nhitec03:
+    build:
+      context: ./nhitec03
+      dockerfile: Dockerfile
+    container_name: nhitec03
+    volumes:
+      - ./nhitec03/ansible:/ansible:ro
+      - ./nhitec03/ssh-keys:/root/.ssh:ro

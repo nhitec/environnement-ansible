@@ -1,0 +1,15 @@
+control:
+  hosts:
+    localhost:
+      ansible_connection: local
+
+nodes:
+  hosts:
+    nhitec01:
+      ansible_host: nhitec01
+      ansible_user: ansible
+      ansible_ssh_private_key_file: ~/.ssh/id_ed25519
+    nhitec02:
+      ansible_host: nhitec02
+      ansible_user: ansible
+      ansible_ssh_private_key_file: ~/.ssh/id_ed25519
