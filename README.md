@@ -67,3 +67,9 @@ ansible -m ping control
 
 - Les conteneurs sont sur le même réseau Docker et se résolvent par leur nom de service (nhitec01, nhitec02, nhitec03)
 
+## ⚠️ ATTENTION
+
+L'hôte **nhitec03** n'a pas encore les fingerprints des autres hôtes. Il est, dans ce cas, nécessaire de lancer cette commande au lancement :
+```
+ssh-keyscan -H nhitec01 && ssh-keyscan -H nhitec02
+```
