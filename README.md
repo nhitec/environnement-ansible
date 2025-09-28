@@ -8,6 +8,31 @@ Il simule une petite infrastructure avec trois machines virtuelles légères :
 - **nhitec03** → nœud de contrôle (machine Ansible)
 
 ---
+#### Architecture du repo
+```bash
+├── docker-compose.yaml
+├── nhitec01
+│   ├── Dockerfile
+│   └── ssh-keys
+│       └── nhitec03.pub
+├── nhitec02
+│   ├── Dockerfile
+│   └── ssh-keys
+│       └── nhitec03.pub
+├── nhitec03
+│   ├── ansible
+│   │   ├── ansible.cfg
+│   │   ├── inventory.yaml
+│   │   └── playbooks
+│   │       └── test.yaml
+│   ├── Dockerfile
+│   └── ssh-keys
+│       ├── id_ed25519
+│       └── id_ed25519.pub
+├── README.md
+├── run.sh
+└── stop.sh
+```
 
 ## 🚀 Démarrage rapide
 
@@ -57,6 +82,19 @@ ansible -m ping nodes
 ```bash
 ansible -m ping control
 ```
+
+## 📜 Playbooks
+
+Lorsque vous lancez l'environnement, vous arrivez directement sur le conteneur **nhitec03**.  
+Le répertoire de travail par défaut est **`/ansible`**, qui correspond à un volume bindé sur le dossier **`nhitec03/ansible`** de votre machine hôte.
+
+Tous vos fichiers relatifs à Ansible (inventaires, playbooks, rôles, collections, etc.) doivent être placés dans ce dossier côté hôte.  
+Ils seront automatiquement accessibles dans le conteneur.
+
+>Les playbooks n’ont pas besoin d’être rangés spécifiquement dans `nhitec03/ansible/playbooks`.  
+> Vous pouvez organiser votre arborescence comme vous le souhaitez (par exemple : `roles/`, `playbooks/`, `group_vars/`, …).
+
+
 
 ## 🛠️ Notes pratiques
 - L’utilisateur par défaut sur les nœuds est ansible, avec accès sudo sans mot de passe.
