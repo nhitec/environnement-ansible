@@ -23,4 +23,12 @@ RUN apt install -y ansible
 
 WORKDIR /ansible
 
+COPY ./nhitec03/ssh-keys/id_ed25519 /root/.ssh/id_ed25519
+COPY ./nhitec03/ssh-keys/id_ed25519.pub /root/.ssh/id_ed25519.pub
+
+# Fixer les bonnes permissions
+RUN chmod 700 /root/.ssh && \
+    chmod 600 /root/.ssh/id_ed25519 && \
+    chmod 644 /root/.ssh/id_ed25519.pub
+
 CMD ["sleep", "infinity"]
