@@ -1,0 +1,13 @@
+---
+- name: Test Playbook
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Include the main task file
+      shell:
+        cmd: echo "Ansible is working!"
+      register: result
+
+    - name: Show the result
+      debug:
+        var: result

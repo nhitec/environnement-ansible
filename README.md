@@ -11,15 +11,13 @@ Il simule une petite infrastructure avec trois machines virtuelles légères :
 
 ## 🚀 Démarrage rapide
 
-1. Construire et lancer l’environnement :
-```bash
-docker compose up -d --build && docker compose exec nhitec03 bash
+1. Lancer l'environnement :
 ```
-2. Lancer les commandes habituelles :
-```bash
-ansible all -m ping
-ansible-playbook site.yml
+./run.sh
 ```
+2. Nettoyer l'environnement :
+./stop.sh
+
 
 ## 📂 Inventaire Ansible
 Un inventaire minimal est fourni par défaut :
